@@ -1,5 +1,6 @@
 package com.upao.Backend23.config;
 
+
 import com.upao.Backend23.util.EncryptionUtil;
 import com.upao.Backend23.util.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -17,16 +18,16 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-
 import java.io.IOException;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     private static final Logger logger = LoggerFactory.getLogger(JwtRequestFilter.class);
 
-
+    @Autowired
     JwtUserDetailsService jwtUserDetailsService;
 
+    @Autowired
     JwtTokenUtil jwtTokenUtil;
 
     @Override

@@ -51,7 +51,7 @@ public class UserService {
     public String addUser(User user){
         Optional<User> existingUserByEmail = userRepository.findByEmail(user.getEmail());
 
-        if (isEmptyOrWhitespace(user.getFirstName()) || isEmptyOrWhitespace(user.getLastName()) || isEmptyOrWhitespace(user.getEmail()) || isEmptyOrWhitespace(user.getPassword())) {
+        if (isEmptyOrWhitespace(user.getFirstName()) || isEmptyOrWhitespace(user.getLastName()) || isEmptyOrWhitespace(user.getEmail()) || user.getPassword() == null) {
             throw new IllegalStateException("Todos los campos son requeridos");
         }
         if(!existingUserByEmail.isEmpty()) {

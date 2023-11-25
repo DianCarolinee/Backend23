@@ -10,13 +10,12 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.io.Serial;
 import java.io.Serializable;
 
+//https://www.devglan.com/spring-security/exception-handling-in-spring-security
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 
-    @Serial
     private static final long serialVersionUID = -7858869558953243875L;
     private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint.class);
 
@@ -30,5 +29,4 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
 //        You can also write JSON object below to send proper response as you send from REST resources.
         response.getWriter().write("You're not authorized to perform this transaction.");
     }
-
 }

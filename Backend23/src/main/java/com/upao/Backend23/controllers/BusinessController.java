@@ -26,7 +26,7 @@ public class BusinessController {
             return new ResponseEntity<>(newBusiness, HttpStatus.CREATED);
            } catch (IllegalStateException sms){
             return new ResponseEntity<>(sms.getMessage(), HttpStatus.BAD_REQUEST);
-                                              }
+        }
 
     }
 

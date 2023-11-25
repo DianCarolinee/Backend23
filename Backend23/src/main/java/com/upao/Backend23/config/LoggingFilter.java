@@ -13,7 +13,6 @@ import java.io.IOException;
 
 @Component
 public class LoggingFilter extends OncePerRequestFilter {
-
     private static final Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
 
     @Override
@@ -22,5 +21,4 @@ public class LoggingFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
         logger.debug("[LOG: RES] | {}", response.getStatus());
     }
-
 }

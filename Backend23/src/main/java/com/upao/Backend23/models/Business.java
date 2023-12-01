@@ -18,7 +18,7 @@ public class Business {
 @Id
 @Column(name = "business_id")
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long userid;
+private Long businessId;
 
 @Column(name = "business_name")
 private String businessName;

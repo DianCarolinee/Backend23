@@ -24,7 +24,7 @@ public class BusinessService {
     public String addBusiness(Business business) {
         try {
             Business savedBusiness = businessRepository.save(business);
-            return "Negocio registrado con éxito: " + savedBusiness.getBusinessName(); // Puedes devolver el ID u otra información relevante
+            return "Negocio registrado con éxito. " + savedBusiness.getBusinessName(); // Puedes devolver el ID u otra información relevante
         } catch (Exception e) {
             throw new IllegalStateException("Error al registrar el negocio", e);
         }

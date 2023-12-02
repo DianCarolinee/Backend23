@@ -5,8 +5,6 @@ import com.upao.Backend23.models.User;
 import com.upao.Backend23.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -40,9 +38,10 @@ public class UserService {
         if (users.isEmpty()) {
             throw new IllegalStateException("Usuario no encontrado");
         }
-        return users.stream()
-                .map(UserDTO::new)
+        List<UserDTO> userDTOs = users.stream()
+                .map(user -> new UserDTO(user))
                 .collect(Collectors.toList());
+        return userDTOs;
     }
 
     private boolean isEmptyOrWhitespace(String value) {
@@ -65,7 +64,7 @@ public class UserService {
         return "Usuario registrado correctamente";
 
     }
-
+/*
     public ResponseEntity<?> getUserProfile(String email) {
         if (isEmptyOrWhitespace(email)) {
             return new ResponseEntity<>("El correo es un campo requerido", HttpStatus.BAD_REQUEST);
@@ -81,7 +80,7 @@ public class UserService {
         return null;
     }
 
-
+*/
 
 
 

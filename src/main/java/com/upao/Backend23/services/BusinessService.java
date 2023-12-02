@@ -23,8 +23,9 @@ public class BusinessService {
 
     public String addBusiness(Business business) {
         try {
+            validate(business);
             Business savedBusiness = businessRepository.save(business);
-            return "Negocio registrado con éxito. " + savedBusiness.getBusinessName(); // Puedes devolver el ID u otra información relevante
+            return "Negocio registrado con éxito. " + savedBusiness.getBusinessName();
         } catch (Exception e) {
             throw new IllegalStateException("Error al registrar el negocio", e);
         }
@@ -34,6 +35,7 @@ public class BusinessService {
         Optional<Business> existingBusiness = businessRepository.findById(businessId);
 
         if (existingBusiness.isPresent()) {
+            validate(updatedBusiness);
             // Actualizar la información del negocio existente
             Business businessToUpdate = existingBusiness.get();
             businessToUpdate.setBusinessName(updatedBusiness.getBusinessName());

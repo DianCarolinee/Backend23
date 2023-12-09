@@ -38,7 +38,7 @@ public class SecurityConfig {
         httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((it) ->
                         // don't authenticate this particular request
-                        it.requestMatchers("/api/v1/users/login", "/api/v1/users/register", "/api/v1/business/create").permitAll()
+                        it.requestMatchers("/api/v1/users/login", "/api/v1/users/register", "/api/v1/business/create", "/v1/sendMessage", "/api/v1/business/create").permitAll()
                                 // all other requests need to be authenticated
                                 .anyRequest().authenticated())
                 .exceptionHandling((it) ->
